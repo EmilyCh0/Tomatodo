@@ -1,4 +1,4 @@
-package com.example.todo.todo
+package com.example.todo.note
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,8 +8,7 @@ import android.view.ViewGroup
 import com.example.todo.R
 
 
-class TodoFragment : Fragment() {
-    //private lateinit var binding: TodoFragmentBinding
+class NoteFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,13 +16,11 @@ class TodoFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_todo, container, false)
+        return inflater.inflate(R.layout.fragment_note, container, false)
     }
-
 
 }

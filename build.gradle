@@ -1,6 +1,6 @@
 buildscript {
     ext{
-        navigationVersion = '2.5.0'
+        navigation_version = '2.5.0'
     }
 }
 
