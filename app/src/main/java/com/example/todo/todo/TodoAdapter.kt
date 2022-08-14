@@ -14,7 +14,7 @@ class TodoAdapter : ListAdapter<Todo, TodoAdapter.TodoViewHolder>(DiffCallback){
     class TodoViewHolder(private var binding: TodoItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(todo: Todo){
             binding.apply {
-
+                titleTv.text = todo.title
             }
         }
     }

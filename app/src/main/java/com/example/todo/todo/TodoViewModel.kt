@@ -9,8 +9,9 @@ class TodoViewModel(private val todoDao: TodoDao): ViewModel() {
 
     val todoItems: LiveData<List<Todo>> = todoDao.observeTodo().asLiveData()
 
-    private fun insertTodo(todo: Todo){
+    fun insertTodo(todo: Todo){
         viewModelScope.launch { todoDao.insertTodo(todo) }
     }
+
 }
 

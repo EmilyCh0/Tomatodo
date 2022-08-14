@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todo.TodoApplication
 import com.example.todo.ViewModelFactory
+import com.example.todo.data.Todo
 import com.example.todo.databinding.FragmentTodoBinding
 
 
