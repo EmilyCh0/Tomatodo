@@ -42,7 +42,7 @@ class TodoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = TodoAdapter()
+        val adapter = TodoAdapter(viewModel)
 
         binding.apply {
             recyclerview.layoutManager = LinearLayoutManager(context)

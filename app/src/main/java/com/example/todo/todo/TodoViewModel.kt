@@ -22,5 +22,16 @@ class TodoViewModel(private val todoDao: TodoDao): ViewModel() {
         insertTodo(newTodo)
     }
 
+    fun toggleTodoCheckBox(todo: Todo, completed: Boolean) = viewModelScope.launch {
+        if(completed){
+            // complete
+            todoDao.updateCompleted(todo.id, completed)
+        }else{
+            // activate
+            todoDao.updateCompleted(todo.id, completed)
+        }
+
+    }
+
 }
 

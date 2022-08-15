@@ -9,12 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todo.data.Todo
 import com.example.todo.databinding.TodoItemBinding
 
-class TodoAdapter : ListAdapter<Todo, TodoAdapter.TodoViewHolder>(DiffCallback){
+class TodoAdapter(private val viewModel: TodoViewModel): ListAdapter<Todo, TodoAdapter.TodoViewHolder>(DiffCallback){
 
     class TodoViewHolder(private var binding: TodoItemBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(todo: Todo){
+        fun bind(viewModel: TodoViewModel, todo: Todo){
             binding.apply {
                 titleTv.text = todo.title
+                viewmodel = viewModel
+                item = todo
             }
         }
     }
@@ -30,7 +32,7 @@ class TodoAdapter : ListAdapter<Todo, TodoAdapter.TodoViewHolder>(DiffCallback){
 
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
+        holder.bind(viewModel, item)
     }
 
     companion object {
