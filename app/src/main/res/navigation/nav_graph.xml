@@ -13,10 +13,24 @@
         <action
             android:id="@+id/action_todoFragment_to_noteFragment"
             app:destination="@id/note_fragment_dest" />
+        <action
+            android:id="@+id/action_todo_fragment_dest_to_addTodoFragment"
+            app:destination="@id/addTodoFragment" />
     </fragment>
     <fragment
         android:id="@+id/note_fragment_dest"
         android:name="com.example.todo.note.NoteFragment"
         android:label="fragment_note"
         tools:layout="@layout/fragment_note" />
+    <fragment
+        android:id="@+id/addTodoFragment"
+        android:name="com.example.todo.addtodo.AddTodoFragment"
+        android:label="fragment_add_todo"
+        tools:layout="@layout/fragment_add_todo" >
+        <action
+            android:id="@+id/action_addTodoFragment_to_todo_fragment_dest"
+            app:destination="@id/todo_fragment_dest"
+            app:popUpTo="@id/todo_fragment_dest"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

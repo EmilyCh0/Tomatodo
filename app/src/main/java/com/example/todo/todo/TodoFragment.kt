@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todo.TodoApplication
 import com.example.todo.ViewModelFactory
@@ -46,6 +47,10 @@ class TodoFragment : Fragment() {
         binding.apply {
             recyclerview.layoutManager = LinearLayoutManager(context)
             recyclerview.adapter = adapter
+            addTodoFab.setOnClickListener {
+                val action = TodoFragmentDirections.actionTodoFragmentDestToAddTodoFragment()
+                findNavController().navigate(action)
+            }
         }
         viewModel.todoItems.observe(this.viewLifecycleOwner){ items ->
             items.let {
