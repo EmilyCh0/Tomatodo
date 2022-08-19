@@ -21,6 +21,7 @@ class TodoAdapter(
             binding.apply {
                 viewmodel = viewModel
                 item = todo
+                executePendingBindings()
             }
         }
     }
@@ -30,7 +31,7 @@ class TodoAdapter(
         viewType: Int
     ): TodoAdapter.TodoViewHolder {
         return TodoViewHolder(
-            TodoItemBinding.inflate(LayoutInflater.from(parent.context))
+            TodoItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 
@@ -49,7 +50,7 @@ class TodoAdapter(
             }
 
             override fun areContentsTheSame(oldItem: Todo, newItem: Todo): Boolean {
-                return oldItem.title == newItem.title
+                return oldItem == newItem
             }
         }
     }
