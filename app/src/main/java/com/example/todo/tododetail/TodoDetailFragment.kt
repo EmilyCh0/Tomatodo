@@ -80,6 +80,16 @@ class TodoDetailFragment : Fragment() {
         findNavController().navigateUp()
     }
 
+    private fun showConfirmationDialog(){
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Delete")
+            .setMessage("Are you sure you want to delete?")
+            .setCancelable(false)
+            .setNegativeButton("No"){_, _ -> }
+            .setPositiveButton("Yes"){_, _ -> deleteTodo(todo)}
+            .show()
+    }
+
     private fun setupMenuProvider(){
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(
@@ -90,7 +100,7 @@ class TodoDetailFragment : Fragment() {
                 override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                     return when (menuItem.itemId){
                         R.id.delete_menu -> {
-                            deleteTodo(todo)
+                            showConfirmationDialog()
                             true
                         }
                         else -> false
