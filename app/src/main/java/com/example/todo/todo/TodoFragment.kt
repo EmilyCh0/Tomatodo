@@ -25,6 +25,8 @@ class TodoFragment : Fragment() {
         )
     }
 
+    private lateinit var todoAdapter: TodoAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -35,30 +37,29 @@ class TodoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentTodoBinding.inflate(inflater, container, false)
+        _binding = FragmentTodoBinding.inflate(inflater, container, false).apply {
+            viewmodel = viewModel
+        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = TodoAdapter(viewModel = viewModel) {
-            val action = TodoFragmentDirections.actionTodoFragmentDestToTodoDetailFragment(it.id)
-            this.findNavController().navigate(action)
+        binding.lifecycleOwner = this.viewLifecycleOwner
+
+        val bindingViewModel = binding.viewmodel
+        if(bindingViewModel!=null){
+            todoAdapter = TodoAdapter(bindingViewModel){
+                val action = TodoFragmentDirections.actionTodoFragmentDestToTodoDetailFragment(it.id)
+                this.findNavController().navigate(action)
+            }
+            binding.recyclerview.adapter = todoAdapter
         }
 
-        binding.apply {
-            recyclerview.layoutManager = LinearLayoutManager(context)
-            recyclerview.adapter = adapter
-            addTodoFab.setOnClickListener {
-                val action = TodoFragmentDirections.actionTodoFragmentDestToAddTodoFragment()
-                findNavController().navigate(action)
-            }
-        }
-        viewModel.todoItems.observe(this.viewLifecycleOwner){ items ->
-            items.let {
-                adapter.submitList(it)
-            }
+        binding.addTodoFab.setOnClickListener {
+            val action = TodoFragmentDirections.actionTodoFragmentDestToAddTodoFragment()
+            findNavController().navigate(action)
         }
 
     }

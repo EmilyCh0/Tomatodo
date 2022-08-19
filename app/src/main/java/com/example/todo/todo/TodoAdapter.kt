@@ -1,6 +1,7 @@
 package com.example.todo.todo
 
 
+import android.graphics.Color
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -18,9 +19,6 @@ class TodoAdapter(
     class TodoViewHolder(private var binding: TodoItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(viewModel: TodoViewModel, todo: Todo){
             binding.apply {
-                titleTv.text = todo.title
-                if(todo.isCompleted) titleTv.paintFlags = titleTv.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                else titleTv.paintFlags = titleTv.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
                 viewmodel = viewModel
                 item = todo
             }
