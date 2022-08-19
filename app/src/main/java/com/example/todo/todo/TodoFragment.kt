@@ -61,6 +61,5 @@ class TodoFragment : Fragment() {
             }
         }
 
-
     }
 }

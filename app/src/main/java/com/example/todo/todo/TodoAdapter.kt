@@ -1,6 +1,7 @@
 package com.example.todo.todo
 
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -18,6 +19,8 @@ class TodoAdapter(
         fun bind(viewModel: TodoViewModel, todo: Todo){
             binding.apply {
                 titleTv.text = todo.title
+                if(todo.isCompleted) titleTv.paintFlags = titleTv.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                else titleTv.paintFlags = titleTv.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
                 viewmodel = viewModel
                 item = todo
             }

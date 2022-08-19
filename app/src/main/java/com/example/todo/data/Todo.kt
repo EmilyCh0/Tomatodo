@@ -13,5 +13,5 @@ data class Todo (
     @ColumnInfo(name = "description") var description: String = "",
     @ColumnInfo(name = "completed") var isCompleted: Boolean = false
 ){
-
+    val isActive get() = !isCompleted
 }
