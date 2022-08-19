@@ -42,7 +42,10 @@ class TodoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = TodoAdapter(viewModel)
+        val adapter = TodoAdapter(viewModel = viewModel) {
+            val action = TodoFragmentDirections.actionTodoFragmentDestToTodoDetailFragment(it.id)
+            this.findNavController().navigate(action)
+        }
 
         binding.apply {
             recyclerview.layoutManager = LinearLayoutManager(context)

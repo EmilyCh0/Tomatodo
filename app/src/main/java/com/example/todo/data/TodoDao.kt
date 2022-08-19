@@ -21,7 +21,7 @@ interface TodoDao {
 
     // id로 select
     @Query("SELECT * FROM todo WHERE id = :todoId")
-    suspend fun getTodoById(todoId: Int): Todo?
+    fun getTodoById(todoId: Int): Flow<Todo>
 
     // 하나 insert
     @Insert(onConflict = OnConflictStrategy.REPLACE)

@@ -30,7 +30,16 @@ class TodoViewModel(private val todoDao: TodoDao): ViewModel() {
             // activate
             todoDao.updateCompleted(todo.id, completed)
         }
+    }
 
+    fun retrieveTodo(id: Int): LiveData<Todo>{
+        return todoDao.getTodoById(id).asLiveData()
+    }
+
+    fun updateTodo(todo: Todo){
+        viewModelScope.launch{
+            todoDao.updateTodo(todo)
+        }
     }
 
 }
