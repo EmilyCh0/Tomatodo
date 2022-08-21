@@ -1,6 +1,7 @@
 package com.example.todo.todo
 
 import androidx.lifecycle.*
+import com.example.todo.R
 import com.example.todo.data.Todo
 import com.example.todo.data.TodoDao
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -15,7 +16,12 @@ class TodoViewModel(private val todoDao: TodoDao): ViewModel() {
     }
 
     private fun getNewTodoEntry(title: String, description: String): Todo{
-        return Todo(title = title, description = description)
+        val imgResList = listOf<Int>(
+            R.drawable.apple,
+            R.drawable.tomato,
+            R.drawable.paprika
+        )
+        return Todo(title = title, description = description, imgSrc = imgResList.random())
     }
 
     fun addNewTodo(title: String, description: String){

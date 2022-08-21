@@ -49,7 +49,7 @@
                 android:layout_height="35dp"
                 android:layout_gravity="bottom"
                 android:layout_marginStart="16dp"
-                android:src="@drawable/apple"/>
+                app:imageResource="@{item.imgSrc}"/>
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
