@@ -5,5 +5,5 @@
         android:id="@+id/delete_menu"
         android:icon="@drawable/ic_outline_delete_24"
         app:showAsAction="always"
-        android:title="Delete todo" />
+        android:title="@string/delete_todo" />
 </menu>

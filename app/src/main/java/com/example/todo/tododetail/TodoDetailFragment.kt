@@ -82,11 +82,11 @@ class TodoDetailFragment : Fragment() {
 
     private fun showConfirmationDialog(){
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Delete")
-            .setMessage("Are you sure you want to delete?")
+            .setTitle(getString(R.string.Delete))
+            .setMessage(getString(R.string.delete_confirmation_dialog))
             .setCancelable(false)
-            .setNegativeButton("No"){_, _ -> }
-            .setPositiveButton("Yes"){_, _ -> deleteTodo(todo)}
+            .setNegativeButton(getString(R.string.no)){ _, _ -> }
+            .setPositiveButton(getString(R.string.yes)){ _, _ -> deleteTodo(todo)}
             .show()
     }
 

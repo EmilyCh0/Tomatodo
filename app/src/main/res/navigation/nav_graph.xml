@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/todo_fragment_dest"
         android:name="com.example.todo.todo.TodoFragment"
-        android:label="TODO"
+        android:label="@string/todo_frag_label"
         tools:layout="@layout/fragment_todo">
         <action
             android:id="@+id/action_todoFragment_to_noteFragment"
@@ -23,12 +23,12 @@
     <fragment
         android:id="@+id/note_fragment_dest"
         android:name="com.example.todo.note.NoteFragment"
-        android:label="NOTE"
+        android:label="@string/note_frag_label"
         tools:layout="@layout/fragment_note" />
     <fragment
         android:id="@+id/addTodoFragment"
         android:name="com.example.todo.addtodo.AddTodoFragment"
-        android:label="새로운 TODO"
+        android:label="@string/add_todo_label"
         tools:layout="@layout/fragment_add_todo">
         <action
             android:id="@+id/action_addTodoFragment_to_todo_fragment_dest"
@@ -39,7 +39,7 @@
     <fragment
         android:id="@+id/todoDetailFragment"
         android:name="com.example.todo.tododetail.TodoDetailFragment"
-        android:label="할 일 : {todo_title}"
+        android:label="@string/todo_detail_label"
         tools:layout="@layout/fragment_todo_detail">
         <argument
             android:name="todo_id"
