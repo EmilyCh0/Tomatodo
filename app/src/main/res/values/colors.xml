@@ -12,4 +12,11 @@
     <color name="pink_300">#FBB8AC</color>
     <color name="brown_900">#442C2E</color>
 
+    <color name="red_primary">#f85538</color>
+    <color name="red_light">#ff8864</color>
+    <color name="red_dark">#be1a0c</color>
+    <color name="green_primary">#85ad65</color>
+    <color name="green_light">#b6df94</color>
+    <color name="green_dark">#567e39</color>
+
 </resources>

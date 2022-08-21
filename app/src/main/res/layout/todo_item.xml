@@ -15,27 +15,44 @@
 
     </data>
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:padding="8dp">
-
-        <CheckBox
-            android:id="@+id/checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{(view) -> viewmodel.toggleTodoCheckBox(item, ((CompoundButton)view).isChecked())}"
-            android:checked="@{item.completed}"/>
-
-        <TextView
-            android:id="@+id/title_tv"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="8dp">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:text="@{item.title}"
-            app:completedTodo="@{item.completed}"/>
+            android:orientation="horizontal"
+            android:padding="8dp">
 
-    </LinearLayout>
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:onClick="@{(view) -> viewmodel.toggleTodoCheckBox(item, ((CompoundButton)view).isChecked())}"
+                android:checked="@{item.completed}"/>
+
+            <TextView
+                android:id="@+id/title_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:text="@{item.title}"
+                app:completedTodo="@{item.completed}"/>
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/apple"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
 </layout>
