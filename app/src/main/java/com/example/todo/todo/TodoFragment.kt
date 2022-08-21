@@ -51,7 +51,7 @@ class TodoFragment : Fragment() {
         val bindingViewModel = binding.viewmodel
         if(bindingViewModel!=null){
             todoAdapter = TodoAdapter(bindingViewModel){
-                val action = TodoFragmentDirections.actionTodoFragmentDestToTodoDetailFragment(it.id)
+                val action = TodoFragmentDirections.actionTodoFragmentDestToTodoDetailFragment(todoId = it.id, todoTitle = it.title)
                 this.findNavController().navigate(action)
             }
             binding.recyclerview.adapter = todoAdapter
