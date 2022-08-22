@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_todo_fragment_dest_to_todoDetailFragment"
             app:destination="@id/todoDetailFragment" />
+        <action
+            android:id="@+id/action_todo_fragment_dest_to_addTodoDialog"
+            app:destination="@id/addTodoDialog" />
     </fragment>
     <fragment
         android:id="@+id/note_fragment_dest"
@@ -51,4 +54,12 @@
             android:name="todo_title"
             app:argType="string" />
     </fragment>
+    <dialog
+        android:id="@+id/addTodoDialog"
+        android:name="com.example.todo.addtodo.AddTodoDialog"
+        android:label="AddTodoDialog" >
+        <action
+            android:id="@+id/action_addTodoDialog_to_todo_fragment_dest"
+            app:destination="@id/todo_fragment_dest" />
+    </dialog>
 </navigation>

@@ -8,6 +8,8 @@
     <string name="yes">Yes</string>
     <string name="description">description</string>
     <string name="todo">todo</string>
+    <string name="enter_todo">할 일을 입력하세요.</string>
+    <string name="enter_desc">내용을 입력하세요.</string>
     <string name="todo_menu">TODO</string>
     <string name="note_menu">NOTE</string>
     <string name="calender_menu">CALENDER</string>
