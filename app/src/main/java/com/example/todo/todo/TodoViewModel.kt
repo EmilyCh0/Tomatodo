@@ -19,9 +19,10 @@ class TodoViewModel(private val todoDao: TodoDao): ViewModel() {
 
     private fun getNewTodoEntry(title: String, description: String): Todo{
         val imgResList = listOf<Int>(
-            R.drawable.apple,
-            R.drawable.tomato,
-            R.drawable.paprika
+            R.drawable.apple2,
+            R.drawable.tomato_w_leg,
+            R.drawable.avocado_w_arm,
+            R.drawable.lime
         )
         return Todo(title = title, description = description, imgSrc = imgResList.random())
     }
