@@ -11,6 +11,7 @@ import com.example.todo.ViewModelFactory
 import com.example.todo.addtodo.AddTodoDialog
 import com.example.todo.data.Todo
 import com.example.todo.databinding.FragmentTodoBinding
+import com.google.android.material.tabs.TabLayout
 
 
 class TodoFragment : Fragment() {
@@ -66,8 +67,20 @@ class TodoFragment : Fragment() {
                     "Add Todo Dialog"
                 )
             }
-
         }
+        binding.tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                when(tab?.position){
+                    0 -> viewModel.filterTodo(0)
+                    1 -> viewModel.filterTodo(1)
+                    2 -> viewModel.filterTodo(2)
+                }
+            }
 
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+        })
     }
 }

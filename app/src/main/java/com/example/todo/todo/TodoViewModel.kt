@@ -11,6 +11,8 @@ class TodoViewModel(private val todoDao: TodoDao): ViewModel() {
 
     val todoItems: LiveData<List<Todo>> = todoDao.observeTodo().distinctUntilChanged().asLiveData()
 
+    val filteredItems: MutableLiveData<List<Todo>> = todoDao.observeTodo().asLiveData() as MutableLiveData<List<Todo>>
+
     private fun insertTodo(todo: Todo){
         viewModelScope.launch { todoDao.insertTodo(todo) }
     }
@@ -22,6 +24,30 @@ class TodoViewModel(private val todoDao: TodoDao): ViewModel() {
             R.drawable.paprika
         )
         return Todo(title = title, description = description, imgSrc = imgResList.random())
+    }
+
+    fun filterTodo(type: Int){
+        filteredItems.value = getTodoToShow(type)
+    }
+
+    private fun getTodoToShow(type: Int): List<Todo>{
+        val todoToShow = ArrayList<Todo>()
+        var todos: List<Todo> = listOf()
+        viewModelScope.launch {
+            todos = todoDao.getTodo()
+            for(todo in todos){
+                when(type){
+                    0 -> todoToShow.add(todo)
+                    1 -> if (todo.isActive){
+                        todoToShow.add(todo)
+                    }
+                    2 -> if(todo.isCompleted){
+                        todoToShow.add(todo)
+                    }
+                }
+            }
+        }
+        return todoToShow
     }
 
     fun addNewTodo(title: String, description: String){
