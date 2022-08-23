@@ -17,4 +17,6 @@ data class Todo (
     @DrawableRes @ColumnInfo(name = "img_src") var imgSrc: Int = R.drawable.apple
 ){
     val isActive get() = !isCompleted
+
+    val hasDescription get() = description != ""
 }
