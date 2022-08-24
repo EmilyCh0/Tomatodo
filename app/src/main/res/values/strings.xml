@@ -2,10 +2,10 @@
     <string name="app_name">Tomatodo</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="Delete">Delete</string>
-    <string name="delete_confirmation_dialog">Are you sure you want to delete?</string>
-    <string name="no">No</string>
-    <string name="yes">Yes</string>
+    <string name="Delete">삭제하시겠습니까?</string>
+    <string name="delete_confirmation_dialog">현재 항목이 삭제됩니다.</string>
+    <string name="no">취소</string>
+    <string name="yes">확인</string>
     <string name="description">description</string>
     <string name="todo">todo</string>
     <string name="enter_todo">할 일을 입력하세요.</string>
@@ -17,7 +17,7 @@
     <string name="todo_frag_label">TODO</string>
     <string name="note_frag_label">NOTE</string>
     <string name="add_todo_label">New TODO</string>
-    <string name="todo_detail_label">TODO : {todo_title}</string>
+    <string name="todo_detail_label">할 일 : {todo_title}</string>
     <string name="all_todo">전체</string>
     <string name="active_todo">진행 중</string>
     <string name="completed_todo">완료</string>
